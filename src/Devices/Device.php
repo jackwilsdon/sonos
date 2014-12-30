@@ -115,6 +115,7 @@ final class Device implements DeviceInterface
                 break;
             case "AlarmClock":
             case "DeviceProperties":
+            case "MusicServices":
             case "ZoneGroupTopology":
                 $path = null;
                 break;
