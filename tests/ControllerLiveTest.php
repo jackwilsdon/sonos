@@ -10,7 +10,7 @@ use duncan3dc\Sonos\Speaker;
 class ControllerLiveTest extends LiveTest
 {
 
-    public function testConstructor1()
+    public function testConstructor1(): void
     {
         foreach ($this->network->getSpeakers() as $speaker) {
             if ($speaker->isCoordinator()) {
@@ -24,7 +24,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testConstructor2()
+    public function testConstructor2(): void
     {
         $this->expectException(\InvalidArgumentException::class);
 
@@ -39,13 +39,13 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testIsCoordinator()
+    public function testIsCoordinator(): void
     {
         $this->assertTrue($this->network->getController()->isCoordinator());
     }
 
 
-    public function testGetStateName()
+    public function testGetStateName(): void
     {
         $states = ["STOPPED", "PAUSED_PLAYBACK", "PLAYING", "TRANSITIONING"];
         foreach ($this->network->getControllers() as $controller) {
@@ -54,7 +54,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testGetState()
+    public function testGetState(): void
     {
         $states = [
             Controller::STATE_STOPPED,
@@ -69,7 +69,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testGetStateDetails()
+    public function testGetStateDetails(): void
     {
         $methods = ["getTitle", "getArtist", "getAlbum", "getNumber", "getDuration", "getPosition", "getStream"];
         $state = $this->network->getController()->getStateDetails();
@@ -86,7 +86,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testNext()
+    public function testNext(): void
     {
         $controller = $this->network->getController();
         $number = $controller->getStateDetails()->getNumber();
@@ -95,7 +95,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testPrevious()
+    public function testPrevious(): void
     {
         $controller = $this->network->getController();
         $number = $controller->getStateDetails()->getNumber();
@@ -104,14 +104,14 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testGetSpeakers()
+    public function testGetSpeakers(): void
     {
         $speakers = $this->network->getController()->getSpeakers();
         $this->assertContainsOnlyInstancesOf(Speaker::class, $speakers);
     }
 
 
-    public function testSetVolume()
+    public function testSetVolume(): void
     {
         $controller = $this->network->getController();
         $volume = 3;
@@ -122,7 +122,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testAdjustVolume1()
+    public function testAdjustVolume1(): void
     {
         $controller = $this->network->getController();
         $volume = 3;
@@ -134,7 +134,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testAdjustVolume2()
+    public function testAdjustVolume2(): void
     {
         $controller = $this->network->getController();
         $volume = 3;
@@ -146,7 +146,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testGetMode()
+    public function testGetMode(): void
     {
         $mode = $this->network->getController()->getMode();
         $this->assertInternalType("boolean", $mode["shuffle"]);
@@ -154,7 +154,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testSetMode1()
+    public function testSetMode1(): void
     {
         $controller = $this->network->getController();
 
@@ -169,7 +169,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testSetMode2()
+    public function testSetMode2(): void
     {
         $controller = $this->network->getController();
 
@@ -184,7 +184,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testGetRepeat()
+    public function testGetRepeat(): void
     {
         $controller = $this->network->getController();
         $controller->setRepeat(true);
@@ -192,7 +192,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testSetRepeat()
+    public function testSetRepeat(): void
     {
         $controller = $this->network->getController();
         $controller->setRepeat(false);
@@ -200,7 +200,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testGetShuffle()
+    public function testGetShuffle(): void
     {
         $controller = $this->network->getController();
         $controller->setShuffle(true);
@@ -208,7 +208,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testSetShuffle()
+    public function testSetShuffle(): void
     {
         $controller = $this->network->getController();
         $controller->setShuffle(false);
@@ -216,7 +216,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testGetCrossfade()
+    public function testGetCrossfade(): void
     {
         $controller = $this->network->getController();
         $controller->setCrossfade(true);
@@ -224,7 +224,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testSetCrossfade()
+    public function testSetCrossfade(): void
     {
         $controller = $this->network->getController();
         $controller->setCrossfade(false);
@@ -232,7 +232,7 @@ class ControllerLiveTest extends LiveTest
     }
 
 
-    public function testGetQueue()
+    public function testGetQueue(): void
     {
         $this->assertInstanceOf(Queue::class, $this->network->getController()->getQueue());
     }

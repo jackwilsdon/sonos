@@ -51,7 +51,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testFrequencyConstants1()
+    public function testFrequencyConstants1(): void
     {
         $alarm = $this->getMockRecurrence("ON_1");
         $this->assertSame(Alarm::MONDAY, $alarm->getFrequency() & Alarm::MONDAY);
@@ -66,7 +66,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testFrequencyConstants2()
+    public function testFrequencyConstants2(): void
     {
         $alarm = $this->getMockRecurrence("ON_01");
         $this->assertSame(Alarm::MONDAY, $alarm->getFrequency() & Alarm::MONDAY);
@@ -81,7 +81,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testFrequencyConstants3()
+    public function testFrequencyConstants3(): void
     {
         $alarm = $this->getMockRecurrence("ON_246");
         $this->assertSame(0, $alarm->getFrequency() & Alarm::MONDAY);
@@ -96,7 +96,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testFrequencyConstants4()
+    public function testFrequencyConstants4(): void
     {
         foreach (["ON_06", "WEEKENDS"] as $recurrence) {
             $alarm = $this->getMockRecurrence($recurrence);
@@ -113,7 +113,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testFrequencyConstants5()
+    public function testFrequencyConstants5(): void
     {
         foreach (["ON_12345", "WEEKDAYS"] as $recurrence) {
             $alarm = $this->getMockRecurrence($recurrence);
@@ -130,7 +130,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testFrequencyConstants6()
+    public function testFrequencyConstants6(): void
     {
         $alarm = $this->getMockRecurrence("ONCE");
         $this->assertSame(0, $alarm->getFrequency() & Alarm::MONDAY);
@@ -145,7 +145,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testFrequencyConstants7()
+    public function testFrequencyConstants7(): void
     {
         foreach (["ON_0123456", "DAILY"] as $recurrence) {
             $alarm = $this->getMockRecurrence($recurrence);
@@ -162,7 +162,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testFrequencyMethods1()
+    public function testFrequencyMethods1(): void
     {
         $alarm = $this->getMockRecurrence("ON_3");
         $this->assertFalse($alarm->onMonday());
@@ -177,7 +177,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testFrequencyMethods2()
+    public function testFrequencyMethods2(): void
     {
         $alarm = $this->getMockRecurrence("ON_12");
         $this->assertTrue($alarm->onMonday());
@@ -192,7 +192,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testFrequencyMethods3()
+    public function testFrequencyMethods3(): void
     {
         $alarm = $this->getMockRecurrence("ON_035");
         $this->assertFalse($alarm->onMonday());
@@ -207,7 +207,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testFrequencyMethods4()
+    public function testFrequencyMethods4(): void
     {
         foreach (["ON_06", "WEEKENDS"] as $recurrence) {
             $alarm = $this->getMockRecurrence($recurrence);
@@ -224,7 +224,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testFrequencyMethods5()
+    public function testFrequencyMethods5(): void
     {
         foreach (["ON_12345", "WEEKDAYS"] as $recurrence) {
             $alarm = $this->getMockRecurrence($recurrence);
@@ -241,7 +241,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testFrequencyMethods6()
+    public function testFrequencyMethods6(): void
     {
         $alarm = $this->getMockRecurrence("ONCE");
         $this->assertFalse($alarm->onMonday());
@@ -256,7 +256,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testFrequencyMethods7()
+    public function testFrequencyMethods7(): void
     {
         foreach (["ON_0123456", "DAILY"] as $recurrence) {
             $alarm = $this->getMockRecurrence($recurrence);
@@ -273,14 +273,14 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testGetId()
+    public function testGetId(): void
     {
         $alarm = $this->getMockAlarm();
         $this->assertSame(999, $alarm->getId());
     }
 
 
-    public function testGetRoom()
+    public function testGetRoom(): void
     {
         $alarm = $this->getMockAlarm([
             "RoomUUID"  =>  "RINCON_TEST",
@@ -289,7 +289,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testGetTime()
+    public function testGetTime(): void
     {
         $alarm = $this->getMockAlarm([
             "StartTime" =>  "01:02:03",
@@ -298,7 +298,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testGetDuration()
+    public function testGetDuration(): void
     {
         $alarm = $this->getMockAlarm([
             "Duration"  =>  "00:01:02",
@@ -307,7 +307,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testGetVolume()
+    public function testGetVolume(): void
     {
         $alarm = $this->getMockAlarm([
             "Volume"    =>  "30",
@@ -316,7 +316,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testSetVolume()
+    public function testSetVolume(): void
     {
         $alarm = $this->getMockAlarm([
             "Volume"    =>  "30",
@@ -331,7 +331,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testGetRepeat()
+    public function testGetRepeat(): void
     {
         $alarm = $this->getMockAlarm([
             "PlayMode"  =>  "REPEAT_ALL",
@@ -340,7 +340,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testSetRepeat1()
+    public function testSetRepeat1(): void
     {
         $alarm = $this->getMockAlarm([
             "PlayMode"  =>  "NORMAL",
@@ -352,7 +352,7 @@ class AlarmTest extends MockTest
 
         $this->assertTrue($alarm->setRepeat(true)->getRepeat());
     }
-    public function testSetRepeat2()
+    public function testSetRepeat2(): void
     {
         $alarm = $this->getMockAlarm([
             "PlayMode"  =>  "REPEAT_ALL",
@@ -362,7 +362,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testGetShuffle()
+    public function testGetShuffle(): void
     {
         $alarm = $this->getMockAlarm([
             "PlayMode"  =>  "SHUFFLE",
@@ -371,7 +371,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testSetShuffle1()
+    public function testSetShuffle1(): void
     {
         $alarm = $this->getMockAlarm([
             "PlayMode"  =>  "NORMAL",
@@ -383,7 +383,7 @@ class AlarmTest extends MockTest
 
         $this->assertTrue($alarm->setShuffle(true)->getShuffle());
     }
-    public function testSetShuffle2()
+    public function testSetShuffle2(): void
     {
         $alarm = $this->getMockAlarm([
             "PlayMode"  =>  "SHUFFLE",
@@ -393,7 +393,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testIsActive()
+    public function testIsActive(): void
     {
         $alarm = $this->getMockAlarm([
             "Enabled"   =>  "1",
@@ -402,7 +402,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testIsNotActive()
+    public function testIsNotActive(): void
     {
         $alarm = $this->getMockAlarm([
             "Enabled"   =>  "0",
@@ -411,7 +411,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testActivate()
+    public function testActivate(): void
     {
         $alarm = $this->getMockAlarm([
             "Enabled"   =>  "0",
@@ -425,7 +425,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testDeactivate()
+    public function testDeactivate(): void
     {
         $alarm = $this->getMockAlarm([
             "Enabled"   =>  "1",
@@ -439,7 +439,7 @@ class AlarmTest extends MockTest
     }
 
 
-    public function testDelete()
+    public function testDelete(): void
     {
         $alarm = $this->getMockAlarm([
             "Enabled"   =>  "1",

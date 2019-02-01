@@ -11,7 +11,7 @@ use Mockery;
 class ControllerTest extends MockTest
 {
 
-    public function testPlay()
+    public function testPlay(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -24,7 +24,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testPlayEmptyQueue()
+    public function testPlayEmptyQueue(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -48,7 +48,7 @@ class ControllerTest extends MockTest
 
 
 
-    public function testSelectTrack()
+    public function testSelectTrack(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -62,7 +62,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testSeekSeconds()
+    public function testSeekSeconds(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -76,7 +76,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testSeekMinutes()
+    public function testSeekMinutes(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -90,7 +90,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testSeekHours()
+    public function testSeekHours(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -104,7 +104,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testSeekZero()
+    public function testSeekZero(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -118,7 +118,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testRestoreState()
+    public function testRestoreState(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -162,7 +162,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testRestoreStateWithTracks()
+    public function testRestoreStateWithTracks(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -230,7 +230,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testGetStateDetailsQueue()
+    public function testGetStateDetailsQueue(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -276,7 +276,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testGetStateDetailsStream()
+    public function testGetStateDetailsStream(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -336,7 +336,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testGetStateDetailsLineIn()
+    public function testGetStateDetailsLineIn(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -356,7 +356,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testGetStateDetailsEmptyQueue()
+    public function testGetStateDetailsEmptyQueue(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -376,7 +376,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testIsStreamingQueue()
+    public function testIsStreamingQueue(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -389,7 +389,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testIsStreamingStream()
+    public function testIsStreamingStream(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -402,7 +402,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testIsStreamingAmazon()
+    public function testIsStreamingAmazon(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);
@@ -415,7 +415,7 @@ class ControllerTest extends MockTest
     }
 
 
-    public function testIsStreamingPlaybar()
+    public function testIsStreamingPlaybar(): void
     {
         $device = $this->getDevice();
         $controller = $this->getController($device);

@@ -11,7 +11,7 @@ class QueueTest extends MockTest
     protected $controller;
     protected $queue;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -20,7 +20,7 @@ class QueueTest extends MockTest
         $this->queue = new Queue($this->controller);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
     }
@@ -37,7 +37,7 @@ class QueueTest extends MockTest
     }
 
 
-    public function testCount()
+    public function testCount(): void
     {
         $this->device->shouldReceive("soap")->twice()->with("ContentDirectory", "Browse", [
             "BrowseFlag"        =>  "BrowseDirectChildren",
@@ -55,7 +55,7 @@ class QueueTest extends MockTest
     }
 
 
-    public function testGetTracks()
+    public function testGetTracks(): void
     {
         $this->device->shouldReceive("soap")->once()->with("ContentDirectory", "Browse", [
             "BrowseFlag"        =>  "BrowseDirectChildren",
@@ -75,7 +75,7 @@ class QueueTest extends MockTest
     }
 
 
-    public function testGetTracksInvalidStart()
+    public function testGetTracksInvalidStart(): void
     {
         $this->device->shouldReceive("soap")->once()->with("ContentDirectory", "Browse", [
             "BrowseFlag"        =>  "BrowseDirectChildren",
@@ -95,7 +95,7 @@ class QueueTest extends MockTest
     }
 
 
-    public function testRemoveTrack()
+    public function testRemoveTrack(): void
     {
         $this->device->shouldReceive("soap")->once()->with("AVTransport", "RemoveTrackRangeFromQueue", [
             "UpdateID"          =>  87,
@@ -109,7 +109,7 @@ class QueueTest extends MockTest
     }
 
 
-    public function testRemoveTracks()
+    public function testRemoveTracks(): void
     {
         $this->device->shouldReceive("soap")->once()->with("AVTransport", "RemoveTrackRangeFromQueue", [
             "UpdateID"          =>  87,
@@ -129,7 +129,7 @@ class QueueTest extends MockTest
     }
 
 
-    public function testClear()
+    public function testClear(): void
     {
         $this->device->shouldReceive("soap")->once()->with("AVTransport", "RemoveAllTracksFromQueue", [
             "ObjectID"          =>  "Q:0",
